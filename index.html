@@ -4,6 +4,22 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>बैदिक दिव्यधाम नेपाल | धार्मिक सेवा र तीर्थयात्रा</title>
+
+<!-- SEO & Meta Tags -->
+<meta name="description" content="बैदिक दिव्यधाम नेपाल - पुराण वाचन, पूजा-पाठ, हवन, संस्कार तथा नेपाल र भारतका प्रसिद्ध तीर्थस्थलहरूमा व्यवस्थित तीर्थयात्राको विश्वसनीय केन्द्र।">
+<meta name="keywords" content="बैदिक दिव्यधाम, तीर्थयात्रा, पुराण वाचन, पूजा, नेपाल, भारत, काशी, पशुपतिनाथ, मुक्तिनाथ">
+<meta name="author" content="Baidik Dibyadham Nepal">
+<link rel="icon" href="favicon.ico">
+
+<!-- Open Graph / Facebook / WhatsApp -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="बैदिक दिव्यधाम नेपाल | धार्मिक सेवा र तीर्थयात्रा">
+<meta property="og:description" content="श्रद्धाको यात्रा: वैदिक परम्पराको अनुभूति। पुराण वाचन, पूजा-पाठ र तीर्थयात्रा व्यवस्थापन।">
+<meta property="og:image" content="images/header-background.jpg">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+
 <style>
   :root{
     --bg:#ffffff; --bg2:#f7f7f7; --card:#ffffff;
@@ -25,6 +41,25 @@
   a{text-decoration:none;color:inherit}
   .wrap{max-width:1200px;margin:0 auto}
   section{scroll-margin-top:90px}
+
+  /* ============ Accessibility ============ */
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    z-index: 999;
+    padding: 1em;
+    background-color: var(--accent);
+    color: white;
+    opacity: 0;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 0 0 8px 0;
+  }
+  .skip-link:focus {
+    left: 0;
+    top: 0;
+    opacity: 1;
+  }
 
   /* ============ Buttons ============ */
   .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 28px;
@@ -151,7 +186,7 @@
 
   /* ============ CTA ============ */
   .cta{position:relative;text-align:center;color:#fff;padding:130px 24px;
-       background:url('images/footer-background.jpg') center/cover no-repeat fixed} /* Updated Background Image */
+       background:url('images/footer-background.jpg') center/cover no-repeat fixed}
   .cta::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62)}
   .cta > *{position:relative;z-index:2}
   .cta h2{color:#fff;max-width:820px;margin:0 auto 14px}
@@ -165,6 +200,17 @@
        border-bottom:1px solid var(--line);font-size:16.5px}
   .info-row .label{color:var(--muted);flex-shrink:0}
   .info-row .value{font-weight:600;text-align:right;word-break:break-word}
+  
+  /* Clickable Contact Links */
+  .contact-link {
+      color: var(--accent-dk);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      transition: color .2s;
+  }
+  .contact-link:hover {
+      color: var(--accent);
+  }
 
   /* ============ Footer ============ */
   footer{background:#1f1f1f;color:#fff;padding:70px 24px 36px}
@@ -213,11 +259,14 @@
 </head>
 <body>
 
+<!-- Accessibility: Skip to Content -->
+<a href="#home" class="skip-link">Skip to content</a>
+
 <!-- ================= TOP BAR ================= -->
 <header class="topbar">
   <div class="wrap">
     <a class="logo" href="#home"><span class="om">🕉</span> बैदिक दिव्यधाम नेपाल</a>
-    <nav class="nav-links" id="menu">
+    <nav class="nav-links" id="menu" role="navigation" aria-label="Main Menu">
       <a href="#home" class="active">गृहपृष्ठ</a>
       <a href="#services">सेवाहरू</a>
       <a href="#about">हाम्रो बारेमा</a>
@@ -226,7 +275,7 @@
     </nav>
     <div class="nav-cta">
       <a href="#contact" class="btn btn-primary">बुकिङ</a>
-      <button class="burger" id="burger" aria-label="मेनु खोल्नुहोस्" aria-expanded="false">☰</button>
+      <button class="burger" id="burger" aria-label="मेनु खोल्नुहोस्" aria-expanded="false" aria-controls="menu">☰</button>
     </div>
   </div>
 </header>
@@ -363,42 +412,42 @@
     </div>
     <div class="dest-grid">
       <div class="dest-card">
-        <img src="images/pashupatinath.jpg" alt="पशुपतिनाथ">
+        <img src="images/pashupatinath.jpg" alt="पशुपतिनाथ" loading="lazy" decoding="async">
         <span class="badge">📍 नेपाल</span>
         <div class="dest-overlay"><h3>पशुपतिनाथ</h3><p>काठमाडौंको प्रसिद्ध शिवधाम, दर्शन, पूजा र विशेष धार्मिक अनुष्ठानका लागि।</p></div>
       </div>
       <div class="dest-card">
-        <img src="images/muktinath.jpg" alt="मुक्तिनाथ">
+        <img src="images/muktinath.jpg" alt="मुक्तिनाथ" loading="lazy" decoding="async">
         <span class="badge">📍 नेपाल</span>
         <div class="dest-overlay"><h3>मुक्तिनाथ</h3><p>मोक्षधामको रूपमा परिचित पवित्र तीर्थस्थल, विशेष धार्मिक यात्राका लागि।</p></div>
       </div>
       <div class="dest-card">
-        <img src="images/janakpurdham.jpg" alt="जनकपुरधाम">
+        <img src="images/janakpurdham.jpg" alt="जनकपुरधाम" loading="lazy" decoding="async">
         <span class="badge">📍 नेपाल</span>
         <div class="dest-overlay"><h3>जनकपुरधाम</h3><p>माता जानकीको पवित्र जन्मभूमि, विवाह मण्डप र प्रमुख धार्मिक स्थलहरूको यात्रा।</p></div>
       </div>
       <div class="dest-card">
-        <img src="images/devghat.jpg" alt="देवघाट">
+        <img src="images/devghat.jpg" alt="देवघाट" loading="lazy" decoding="async">
         <span class="badge">📍 नेपाल</span>
         <div class="dest-overlay"><h3>देवघाट</h3><p>तीर्थ स्नान, धार्मिक अनुष्ठान र आध्यात्मिक साधनाका लागि महत्वपूर्ण गन्तव्य।</p></div>
       </div>
       <div class="dest-card">
-        <img src="images/kashi.jpg" alt="काशी">
+        <img src="images/kashi.jpg" alt="काशी" loading="lazy" decoding="async">
         <span class="badge">📍 भारत</span>
         <div class="dest-overlay"><h3>काशी</h3><p>वाराणसीको विश्वप्रसिद्ध आध्यात्मिक धाम, गंगा आरती र शिव दर्शनका लागि।</p></div>
       </div>
       <div class="dest-card">
-        <img src="images/ayodhya.jpg" alt="अयोध्या">
+        <img src="images/ayodhya.jpg" alt="अयोध्या" loading="lazy" decoding="async">
         <span class="badge">📍 भारत</span>
         <div class="dest-overlay"><h3>अयोध्या</h3><p>भगवान श्रीरामको पावन जन्मभूमि, धार्मिक पर्यटनका लागि अत्यन्त महत्त्वपूर्ण।</p></div>
       </div>
       <div class="dest-card">
-        <img src="images/vrindavan.jpg" alt="वृन्दावन">
+        <img src="images/vrindavan.jpg" alt="वृन्दावन" loading="lazy" decoding="async">
         <span class="badge">📍 भारत</span>
         <div class="dest-overlay"><h3>वृन्दावन</h3><p>राधा-कृष्ण भक्ति, मन्दिर दर्शन र भजनमय वातावरणको अनुपम अनुभव।</p></div>
       </div>
       <div class="dest-card">
-        <img src="images/haridwar.jpg" alt="हरिद्वार / ऋषिकेश">
+        <img src="images/haridwar.jpg" alt="हरिद्वार / ऋषिकेश" loading="lazy" decoding="async">
         <span class="badge">📍 भारत</span>
         <div class="dest-overlay"><h3>हरिद्वार / ऋषिकेश</h3><p>गंगा तट, आध्यात्मिकता, साधना र धार्मिक स्नानको लोकप्रिय केन्द्र।</p></div>
       </div>
@@ -457,8 +506,19 @@
     <h2>सम्पर्क विवरण</h2>
     <p class="lead">बुकिङ, धार्मिक परामर्श वा यात्रा सम्बन्धी जानकारीका लागि हामीलाई सम्पर्क गर्नुहोस्।</p>
     <div class="info-row"><span class="label">संस्थाको नाम</span><span class="value">बैदिक दिव्यधाम नेपाल</span></div>
-    <div class="info-row"><span class="label">फोन</span><span class="value">+९७७-९८XXXXXXXX</span></div>
-    <div class="info-row"><span class="label">इमेल</span><span class="value">info@baidikdibyadhamnepal.com</span></div>
+    
+    <!-- Clickable Phone -->
+    <div class="info-row">
+        <span class="label">फोन</span>
+        <a href="tel:+97798XXXXXXXX" class="value contact-link">+९७७-९८XXXXXXXX</a>
+    </div>
+    
+    <!-- Clickable Email -->
+    <div class="info-row">
+        <span class="label">इमेल</span>
+        <a href="mailto:info@baidikdibyadhamnepal.com" class="value contact-link">info@baidikdibyadhamnepal.com</a>
+    </div>
+    
     <div class="info-row"><span class="label">ठेगाना</span><span class="value">काठमाडौं, नेपाल</span></div>
     <div class="info-row"><span class="label">समय</span><span class="value">आइतबार – शनिबार : बिहान ७:०० देखि बेलुका ७:०० सम्म</span></div>
   </div>
@@ -480,10 +540,11 @@
       <span>© २०२६ बैदिक दिव्यधाम नेपाल। सर्वाधिकार सुरक्षित।</span>
       <span>धर्म • श्रद्धा • सेवा • यात्रा</span>
       <div class="socials">
-        <a href="#" aria-label="Facebook">f</a>
-        <a href="#" aria-label="Instagram">◎</a>
-        <a href="#" aria-label="YouTube">▶</a>
-        <a href="#" aria-label="Email">@</a>
+        <!-- Screen-reader friendly social icons -->
+        <a href="#" aria-label="Facebook"><span aria-hidden="true">f</span></a>
+        <a href="#" aria-label="Instagram"><span aria-hidden="true">◎</span></a>
+        <a href="#" aria-label="YouTube"><span aria-hidden="true">▶</span></a>
+        <a href="#" aria-label="Email"><span aria-hidden="true">@</span></a>
       </div>
     </div>
   </div>

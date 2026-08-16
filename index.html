@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>बैदिक दिव्यधाम नेपाल | धार्मिक सेवा र तीर्थयात्रा</title>
+<style>
+  :root{
+    --bg:#ffffff; --bg2:#f7f7f7; --card:#ffffff;
+    --ink:#1f1f1f; --muted:#757575;
+    --accent:#ff6900; --accent-dk:#e05c00;
+    --accent-soft:#fff3ea; --accent-line:#ffd6ba;
+    --line:#e8e8e8; --line2:#d9d9d9;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",
+      "Kohinoor Devanagari","Noto Sans Devanagari","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    background:var(--bg);color:var(--ink);font-size:17px;line-height:1.75;
+    overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--accent);color:#fff}
+  img{display:block;max-width:100%}
+  a{text-decoration:none;color:inherit}
+  .wrap{max-width:1200px;margin:0 auto}
+  section{scroll-margin-top:90px}
+
+  /* ============ Buttons ============ */
+  .btn{display:inline-flex;align-items:center;gap:10px;border-radius:999px;padding:14px 28px;
+       font-weight:600;font-size:17px;border:none;cursor:pointer;font-family:inherit;
+       letter-spacing:-.01em;transition:.25s}
+  .btn-primary{background:var(--accent);color:#fff;box-shadow:0 8px 22px rgba(255,105,0,.28)}
+  .btn-primary:hover{background:var(--accent-dk);transform:translateY(-2px)}
+  .btn-white{background:#fff;color:var(--ink)}
+  .btn-white:hover{background:#f0f0f0;transform:translateY(-2px)}
+  .btn-ghost{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.6)}
+  .btn-ghost:hover{background:rgba(255,255,255,.12)}
+  .btn .arrow{width:27px;height:27px;border-radius:50%;background:#fff;color:var(--accent);
+       display:inline-flex;align-items:center;justify-content:center;font-size:14px}
+
+  .pill-label{display:inline-block;border:1px solid var(--accent-line);background:#fff;
+       color:var(--accent-dk);border-radius:999px;padding:8px 20px;font-size:15px;font-weight:600}
+  h2{font-weight:700;color:var(--ink);letter-spacing:-.02em;
+     font-size:clamp(28px,4.4vw,42px);line-height:1.35;margin:16px 0 14px}
+  .section{padding:86px 24px}
+  .section-head{text-align:center;max-width:820px;margin:0 auto}
+  .section-head p{color:var(--muted);font-size:17.5px}
+  .orn{width:64px;height:3px;background:var(--accent);border-radius:2px;margin:22px auto 0}
+
+  /* ============ Top bar ============ */
+  .topbar{position:sticky;top:0;z-index:70;background:rgba(255,255,255,.9);
+       backdrop-filter:saturate(180%) blur(14px);-webkit-backdrop-filter:saturate(180%) blur(14px);
+       border-bottom:1px solid var(--line)}
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px;
+       padding:13px 22px;position:relative}
+  .logo{font-size:20px;font-weight:700;letter-spacing:-.02em;color:var(--ink);
+       display:flex;align-items:center;gap:10px}
+  .logo .om{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;
+       display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+  .nav-links{display:flex;gap:4px;align-items:center}
+  .nav-links a{font-weight:500;font-size:16.5px;padding:10px 16px;border-radius:999px;color:var(--ink)}
+  .nav-links a:hover{background:var(--accent-soft);color:var(--accent-dk)}
+  .nav-links a.active{background:var(--accent);color:#fff}
+  .nav-cta{display:flex;align-items:center;gap:10px}
+  .nav-cta .btn{padding:11px 22px;font-size:16px}
+  .burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line2);
+       background:#fff;color:var(--ink);font-size:20px;cursor:pointer}
+
+  /* ============ Hero ============ */
+  .hero{position:relative;min-height:min(92vh,780px);display:flex;align-items:center;
+       background:url('images/header-background.jpg') center 38%/cover no-repeat}
+  .hero::before{content:"";position:absolute;inset:0;
+       background:linear-gradient(100deg,rgba(0,0,0,.72) 0%,rgba(0,0,0,.42) 46%,rgba(0,0,0,.06) 82%)}
+  .hero .wrap{position:relative;z-index:2;padding:80px 24px 190px;width:100%}
+  .hero-eyebrow{display:inline-block;background:rgba(255,105,0,.30);border:1px solid rgba(255,255,255,.4);
+       color:#fff;backdrop-filter:blur(6px);border-radius:999px;padding:9px 20px;font-size:15.5px;font-weight:500}
+  .hero h1{color:#fff;font-weight:800;letter-spacing:-.03em;line-height:1.25;
+       font-size:clamp(33px,6vw,58px);margin:20px 0 16px;max-width:800px}
+  .hero p{color:rgba(255,255,255,.92);font-size:clamp(17px,2.2vw,20px);max-width:660px;margin-bottom:32px}
+  .hero-btns{display:flex;gap:14px;flex-wrap:wrap}
+  .mist{position:absolute;left:0;right:0;bottom:-1px;height:180px;z-index:2;pointer-events:none;background:
+       radial-gradient(55% 95% at 18% 100%, #fff 0%, rgba(255,255,255,.9) 40%, transparent 72%),
+       radial-gradient(48% 85% at 68% 100%, #fff 0%, rgba(255,255,255,.85) 45%, transparent 76%),
+       linear-gradient(to top, #fff 0%, rgba(255,255,255,.95) 30%, rgba(255,255,255,.45) 62%, transparent 100%)}
+
+  /* ============ Stats band ============ */
+  .stats{background:var(--accent);color:#fff;padding:48px 24px}
+  .stats .wrap{display:flex;justify-content:space-around;gap:36px;flex-wrap:wrap;text-align:center}
+  .stats strong{display:block;font-weight:800;letter-spacing:-.02em;font-size:clamp(30px,4vw,44px)}
+  .stats span{font-size:16.5px;color:rgba(255,255,255,.88)}
+
+  /* ============ Services ============ */
+  .services{background:var(--bg2);border-bottom:1px solid var(--line)}
+  .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:50px}
+  .service-card{background:var(--card);border:1px solid var(--line);border-radius:16px;
+       padding:32px 28px;transition:.25s}
+  .service-card:hover{transform:translateY(-6px);box-shadow:0 20px 45px rgba(255,105,0,.10);
+       border-color:var(--accent-line)}
+  .service-icon{width:58px;height:58px;border-radius:50%;background:var(--accent-soft);
+       border:1px solid var(--accent-line);display:flex;align-items:center;justify-content:center;
+       font-size:27px;margin-bottom:18px}
+  .service-card h3{font-size:21.5px;font-weight:700;letter-spacing:-.01em;margin-bottom:8px}
+  .service-card > p{color:var(--muted);font-size:16.5px;margin-bottom:16px}
+  .service-card ul{list-style:none}
+  .service-card li{padding:9px 0 9px 24px;position:relative;font-size:16.5px;color:#3a3a3c;
+       border-top:1px solid var(--line)}
+  .service-card li::before{content:"";position:absolute;left:2px;top:18px;width:8px;height:8px;
+       border-radius:50%;background:var(--accent)}
+
+  /* ============ About ============ */
+  .about{text-align:center;position:relative;overflow:hidden}
+  .about p{max-width:820px;margin:0 auto 14px;color:var(--muted);font-size:17.5px}
+  .watermark{position:absolute;font-size:230px;color:var(--accent);opacity:.05;line-height:1;
+       user-select:none;pointer-events:none;font-weight:800}
+  .watermark.left{left:12px;top:70px}
+  .watermark.right{right:12px;bottom:10px}
+  .about-chips{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin:30px 0 34px}
+  .chip{background:var(--accent-soft);border:1px solid var(--accent-line);border-radius:999px;
+       padding:11px 22px;font-weight:600;font-size:16px;color:var(--accent-dk)}
+
+  /* ============ Destinations ============ */
+  .destinations{background:var(--bg2);border-top:1px solid var(--line)}
+  .dest-head{display:flex;justify-content:space-between;align-items:flex-end;gap:30px;flex-wrap:wrap}
+  .dest-head p{max-width:420px;color:var(--muted);font-size:17px}
+  .dest-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:48px}
+  .dest-card{position:relative;border-radius:16px;overflow:hidden;height:380px;
+       box-shadow:0 10px 26px rgba(0,0,0,.10)}
+  .dest-card img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
+  .dest-card:hover img{transform:scale(1.07)}
+  .badge{position:absolute;top:14px;right:14px;z-index:2;background:var(--accent);color:#fff;
+       border-radius:999px;padding:7px 14px;font-size:13px;font-weight:700}
+  .dest-overlay{position:absolute;left:0;right:0;bottom:0;padding:80px 18px 20px;color:#fff;
+       background:linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.5) 55%, transparent 100%)}
+  .dest-overlay h3{font-size:22px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .dest-overlay p{font-size:15px;line-height:1.65;color:rgba(255,255,255,.85);
+       display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+
+  /* ============ Why + FAQ ============ */
+  .why-faq{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:start}
+  .why p{color:var(--muted);font-size:17.5px;margin-bottom:14px}
+  .why .about-chips{justify-content:flex-start;margin:26px 0 0}
+  .faq details{border-top:1px solid var(--line);padding:20px 0}
+  .faq details:last-child{border-bottom:1px solid var(--line)}
+  .faq summary{cursor:pointer;font-weight:600;font-size:17.5px;list-style:none;
+       display:flex;justify-content:space-between;align-items:center;gap:14px}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font-size:24px;color:var(--accent);flex-shrink:0;font-weight:700}
+  .faq details[open] summary::after{content:"–";color:var(--accent-dk)}
+  .faq details p{color:var(--muted);font-size:16.5px;margin-top:10px}
+
+  /* ============ CTA ============ */
+  .cta{position:relative;text-align:center;color:#fff;padding:130px 24px;
+       background:url('images/footer-background.jpg') center/cover no-repeat fixed} /* Updated Background Image */
+  .cta::before{content:"";position:absolute;inset:0;background:rgba(0,0,0,.62)}
+  .cta > *{position:relative;z-index:2}
+  .cta h2{color:#fff;max-width:820px;margin:0 auto 14px}
+  .cta p{max-width:720px;margin:0 auto 32px;color:rgba(255,255,255,.9);font-size:18px}
+  .cta .hero-btns{justify-content:center}
+
+  /* ============ Contact ============ */
+  .contact{max-width: 800px; margin: 0 auto;}
+  .contact .lead{color:var(--muted);font-size:17.5px;margin-bottom:26px}
+  .info-row{display:flex;justify-content:space-between;gap:20px;padding:15px 0;
+       border-bottom:1px solid var(--line);font-size:16.5px}
+  .info-row .label{color:var(--muted);flex-shrink:0}
+  .info-row .value{font-weight:600;text-align:right;word-break:break-word}
+
+  /* ============ Footer ============ */
+  footer{background:#1f1f1f;color:#fff;padding:70px 24px 36px}
+  .foot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
+  .foot-grid h3{font-weight:700;letter-spacing:-.02em;color:#fff;
+       font-size:clamp(24px,2.8vw,32px);line-height:1.45;margin-bottom:26px}
+  .foot-brand{text-align:right}
+  .foot-brand .logo{justify-content:flex-end;color:#fff;font-size:22px;margin-bottom:14px}
+  .foot-brand p{color:rgba(255,255,255,.65);font-size:15.5px}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
+       margin-top:54px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18);
+       color:rgba(255,255,255,.6);font-size:14.5px}
+  .socials{display:flex;gap:10px}
+  .socials a{width:38px;height:38px;border:1px solid rgba(255,255,255,.35);border-radius:50%;
+       display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
+  .socials a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+  /* ============ Responsive ============ */
+  @media (max-width:1020px){
+    .service-grid{grid-template-columns:repeat(2,1fr)}
+    .dest-grid{grid-template-columns:repeat(2,1fr)}
+    .why-faq,.foot-grid{grid-template-columns:1fr;gap:48px}
+    .foot-brand{text-align:left}
+    .foot-brand .logo{justify-content:flex-start}
+  }
+  @media (max-width:900px){
+    .burger{display:inline-flex;align-items:center;justify-content:center}
+    .nav-links{display:none;position:absolute;top:100%;left:0;right:0;background:#fff;
+         flex-direction:column;align-items:stretch;padding:14px 20px 22px;
+         border-bottom:1px solid var(--line);box-shadow:0 22px 40px rgba(0,0,0,.12)}
+    .nav-links.open{display:flex}
+    .nav-links a{padding:14px 18px;font-size:17.5px;border-radius:14px}
+  }
+  @media (max-width:620px){
+    body{font-size:17.5px}
+    .section{padding:64px 18px}
+    .hero .wrap{padding:60px 20px 170px}
+    .service-grid,.dest-grid{grid-template-columns:1fr}
+    .dest-card{height:350px}
+    .stats .wrap{gap:26px}
+    .nav-cta .btn{padding:10px 16px;font-size:15px}
+    .cta{background-attachment:scroll}
+    footer{padding:56px 20px 30px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= TOP BAR ================= -->
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="#home"><span class="om">🕉</span> बैदिक दिव्यधाम नेपाल</a>
+    <nav class="nav-links" id="menu">
+      <a href="#home" class="active">गृहपृष्ठ</a>
+      <a href="#services">सेवाहरू</a>
+      <a href="#about">हाम्रो बारेमा</a>
+      <a href="#destinations">गन्तव्य</a>
+      <a href="#contact">सम्पर्क</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#contact" class="btn btn-primary">बुकिङ</a>
+      <button class="burger" id="burger" aria-label="मेनु खोल्नुहोस्" aria-expanded="false">☰</button>
+    </div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <span class="hero-eyebrow">धार्मिक सेवा र आध्यात्मिक यात्राको विश्वसनीय केन्द्र</span>
+    <h1>श्रद्धाको यात्रा:<br>वैदिक परम्पराको अनुभूति</h1>
+    <p>हामी पुराण वाचन, पूजा-पाठ, हवन, संस्कार, अनुष्ठान तथा नेपाल र भारतका प्रसिद्ध धार्मिक गन्तव्यहरूमा तीर्थयात्रा व्यवस्थापन गर्ने संस्था हौं। परम्परा, श्रद्धा र व्यवस्थित सेवाको सुन्दर संगम।</p>
+    <div class="hero-btns">
+      <a href="#services" class="btn btn-primary">हाम्रो सेवाहरू हेर्नुहोस्</a>
+      <a href="#contact" class="btn btn-ghost">सम्पर्क गर्नुहोस्</a>
+    </div>
+  </div>
+  <div class="mist"></div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="wrap">
+    <div><strong>१००+</strong><span>धार्मिक कार्यक्रम</span></div>
+    <div><strong>५०+</strong><span>तीर्थयात्रा समूह</span></div>
+    <div><strong>विश्वास</strong><span>श्रद्धा र समर्पण</span></div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section class="section services" id="services">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="pill-label">हाम्रो मुख्य सेवाहरू</span>
+      <h2>धार्मिक कार्यक्रमदेखि तीर्थयात्रासम्म</h2>
+      <p>श्रद्धालुहरूको आवश्यकता अनुसार व्यवस्थित, सम्मानजनक र विश्वसनीय सेवा।</p>
+      <div class="orn"></div>
+    </div>
+    <div class="service-grid">
+      <div class="service-card">
+        <div class="service-icon">📜</div>
+        <h3>पुराण वाचन सेवा</h3>
+        <p>घर, मन्दिर वा विशेष धार्मिक अवसरमा अनुभवी पण्डितद्वारा पुराण वाचन।</p>
+        <ul>
+          <li>श्रीमद्भागवत पुराण</li>
+          <li>रामायण वाचन</li>
+          <li>शिव पुराण</li>
+          <li>देवी भागवत</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🪔</div>
+        <h3>पूजा, हवन तथा अनुष्ठान</h3>
+        <p>परिवार, गृह, व्यवसाय वा व्यक्तिगत धार्मिक कार्यका लागि सम्पूर्ण पूजा सेवा।</p>
+        <ul>
+          <li>सत्यनारायण पूजा</li>
+          <li>गृहप्रवेश तथा गृहशान्ति</li>
+          <li>हवन तथा जप अनुष्ठान</li>
+          <li>विशेष पर्व पूजा</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👨‍👩‍👧👦</div>
+        <h3>संस्कार तथा शुभकार्य</h3>
+        <p>वैदिक परम्पराअनुसार विभिन्न संस्कार तथा शुभकार्यको व्यवस्थापन।</p>
+        <ul>
+          <li>विवाह संस्कार</li>
+          <li>ब्रतबन्ध</li>
+          <li>नामकरण</li>
+          <li>अन्य धार्मिक संस्कार</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🚌</div>
+        <h3>धार्मिक यात्रा व्यवस्थापन</h3>
+        <p>समूह वा व्यक्तिगत तीर्थयात्राका लागि सुगम र सुरक्षित यात्रा सेवा।</p>
+        <ul>
+          <li>यात्रा तालिका निर्माण</li>
+          <li>बस / गाडी व्यवस्थापन</li>
+          <li>बसोबास समन्वय</li>
+          <li>मार्गदर्शन तथा सहयोग</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🏵️</div>
+        <h3>मन्दिर तथा धार्मिक कार्यक्रम</h3>
+        <p>विशेष पूजा, मेला, धार्मिक उत्सव र वार्षिक कार्यक्रमहरूको संयोजन।</p>
+        <ul>
+          <li>भजन कीर्तन</li>
+          <li>धार्मिक समारोह</li>
+          <li>विशेष पर्व व्यवस्थापन</li>
+          <li>सामूहिक पूजा</li>
+        </ul>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">📞</div>
+        <h3>परामर्श तथा बुकिङ</h3>
+        <p>कुन कार्यका लागि कुन पूजा, कस्तो प्रक्रिया र कस्तो तयारी चाहिन्छ भन्ने परामर्श।</p>
+        <ul>
+          <li>धार्मिक परामर्श</li>
+          <li>कार्यक्रम योजना</li>
+          <li>तिथि तथा समय समन्वय</li>
+          <li>सजिलो बुकिङ प्रक्रिया</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ABOUT ================= -->
+<section class="section about" id="about">
+  <span class="watermark left">ॐ</span>
+  <span class="watermark right">ॐ</span>
+  <span class="pill-label">हाम्रो बारेमा</span>
+  <h2>श्रद्धा, शुद्धता र वैदिक परम्पराको सम्मान</h2>
+  <p>बैदिक दिव्यधाम नेपाल श्रद्धा, शुद्धता र वैदिक परम्पराको सम्मानका साथ धार्मिक सेवा प्रदान गर्ने संस्था हो। समाजमा धार्मिक चेतना, आध्यात्मिक शान्ति र वैदिक संस्कृतिको संरक्षण गर्दै व्यवस्थित तथा विश्वसनीय सेवा प्रदान गर्नु हाम्रो प्रमुख उद्देश्य हो।</p>
+  <p>हामी श्रद्धालुहरूलाई धार्मिक कार्यक्रम, पुराण वाचन र तीर्थयात्रालाई अझ सहज, सम्मानजनक र स्मरणीय बनाउने प्रयास गर्छौं।</p>
+  <div class="about-chips">
+    <span class="chip">विश्वासनीय सेवा</span>
+    <span class="chip">वैदिक परम्परा</span>
+    <span class="chip">अनुभवी टोली</span>
+    <span class="chip">सुव्यवस्थित यात्रा</span>
+  </div>
+  <a href="#contact" class="btn btn-primary">सम्पर्क गर्नुहोस् <span class="arrow">↗</span></a>
+</section>
+
+<!-- ================= DESTINATIONS ================= -->
+<section class="section destinations" id="destinations">
+  <div class="wrap">
+    <div class="dest-head">
+      <div>
+        <span class="pill-label">लोकप्रिय गन्तव्यहरू</span>
+        <h2>नेपाल र भारतका प्रसिद्ध<br>तीर्थस्थलहरूमा धार्मिक यात्रा</h2>
+      </div>
+      <p>दर्शन, पूजा र आध्यात्मिक अनुभूतिका लागि व्यवस्थित तीर्थयात्रा व्यवस्थापन।</p>
+    </div>
+    <div class="dest-grid">
+      <div class="dest-card">
+        <img src="images/pashupatinath.jpg" alt="पशुपतिनाथ">
+        <span class="badge">📍 नेपाल</span>
+        <div class="dest-overlay"><h3>पशुपतिनाथ</h3><p>काठमाडौंको प्रसिद्ध शिवधाम, दर्शन, पूजा र विशेष धार्मिक अनुष्ठानका लागि।</p></div>
+      </div>
+      <div class="dest-card">
+        <img src="images/muktinath.jpg" alt="मुक्तिनाथ">
+        <span class="badge">📍 नेपाल</span>
+        <div class="dest-overlay"><h3>मुक्तिनाथ</h3><p>मोक्षधामको रूपमा परिचित पवित्र तीर्थस्थल, विशेष धार्मिक यात्राका लागि।</p></div>
+      </div>
+      <div class="dest-card">
+        <img src="images/janakpurdham.jpg" alt="जनकपुरधाम">
+        <span class="badge">📍 नेपाल</span>
+        <div class="dest-overlay"><h3>जनकपुरधाम</h3><p>माता जानकीको पवित्र जन्मभूमि, विवाह मण्डप र प्रमुख धार्मिक स्थलहरूको यात्रा।</p></div>
+      </div>
+      <div class="dest-card">
+        <img src="images/devghat.jpg" alt="देवघाट">
+        <span class="badge">📍 नेपाल</span>
+        <div class="dest-overlay"><h3>देवघाट</h3><p>तीर्थ स्नान, धार्मिक अनुष्ठान र आध्यात्मिक साधनाका लागि महत्वपूर्ण गन्तव्य।</p></div>
+      </div>
+      <div class="dest-card">
+        <img src="images/kashi.jpg" alt="काशी">
+        <span class="badge">📍 भारत</span>
+        <div class="dest-overlay"><h3>काशी</h3><p>वाराणसीको विश्वप्रसिद्ध आध्यात्मिक धाम, गंगा आरती र शिव दर्शनका लागि।</p></div>
+      </div>
+      <div class="dest-card">
+        <img src="images/ayodhya.jpg" alt="अयोध्या">
+        <span class="badge">📍 भारत</span>
+        <div class="dest-overlay"><h3>अयोध्या</h3><p>भगवान श्रीरामको पावन जन्मभूमि, धार्मिक पर्यटनका लागि अत्यन्त महत्त्वपूर्ण।</p></div>
+      </div>
+      <div class="dest-card">
+        <img src="images/vrindavan.jpg" alt="वृन्दावन">
+        <span class="badge">📍 भारत</span>
+        <div class="dest-overlay"><h3>वृन्दावन</h3><p>राधा-कृष्ण भक्ति, मन्दिर दर्शन र भजनमय वातावरणको अनुपम अनुभव।</p></div>
+      </div>
+      <div class="dest-card">
+        <img src="images/haridwar.jpg" alt="हरिद्वार / ऋषिकेश">
+        <span class="badge">📍 भारत</span>
+        <div class="dest-overlay"><h3>हरिद्वार / ऋषिकेश</h3><p>गंगा तट, आध्यात्मिकता, साधना र धार्मिक स्नानको लोकप्रिय केन्द्र।</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHY US + FAQ ================= -->
+<section class="section why-faq">
+  <div class="why">
+    <span class="pill-label">किन हामी?</span>
+    <h2>धार्मिक कार्य केवल सेवा होइन,<br>श्रद्धाको विषय पनि हो</h2>
+    <p>त्यसैले हामी व्यवस्थापन, शुद्धता, समयपालन र भक्तजनको सम्मानलाई विशेष प्राथमिकता दिन्छौं।</p>
+    <p>घरायसी पूजा होस् वा ठूलो धार्मिक यात्रा, प्रत्येक कार्यक्रमलाई जिम्मेवारीपूर्वक, मर्यादित र सुन्दर ढंगले सम्पन्न गरिन्छ।</p>
+    <div class="about-chips">
+      <span class="chip">शुद्ध विधि</span>
+      <span class="chip">स्पष्ट समन्वय</span>
+      <span class="chip">पारदर्शी सेवा</span>
+      <span class="chip">श्रद्धा केन्द्रित</span>
+    </div>
+  </div>
+  <div class="faq">
+    <details open>
+      <summary>पुराण वाचन वा पूजा बुक गर्न कसरी सम्पर्क गर्ने?</summary>
+      <p>फोन (+९७७-९८XXXXXXXX) वा इमेल (info@baidikdibyadhamnepal.com) मार्फत सम्पर्क गरी तिथि, स्थान र आवश्यकताअनुसार सजिलै बुकिङ गर्न सक्नुहुन्छ।</p>
+    </details>
+    <details>
+      <summary>कुन कार्यका लागि कुन पूजा चाहिन्छ भन्ने परामर्श पाइन्छ?</summary>
+      <p>हुन्छ। हाम्रो टोलीले तपाईंको आवश्यकताअनुसार धार्मिक परामर्श, कार्यक्रम योजना तथा तिथि–समय समन्वयमा सहयोग गर्छ।</p>
+    </details>
+    <details>
+      <summary>तीर्थयात्रामा बसोबास र यातायातको व्यवस्था हुन्छ?</summary>
+      <p>हो। बस/गाडी व्यवस्थापन, बसोबास समन्वय र मार्गदर्शनसहित सम्पूर्ण यात्रा सुगम र सुरक्षित बनाइन्छ।</p>
+    </details>
+    <details>
+      <summary>समूह बाहेक व्यक्तिगत पूजा वा यात्रा पनि हुन्छ?</summary>
+      <p>दुवै हुन्छ। घरायसी पूजा, संस्कारदेखि समूह वा व्यक्तिगत तीर्थयात्रासम्म — प्रत्येकलाई मर्यादित र सुन्दर ढंगले सम्पन्न गरिन्छ।</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <h2>धार्मिक कार्यक्रम वा तीर्थयात्रा योजना गर्दै हुनुहुन्छ?</h2>
+  <p>पुराण वाचन, पूजा, संस्कार वा धार्मिक यात्राको लागि आजै सम्पर्क गर्नुहोस्। हामी तपाईंको आवश्यकताअनुसार सम्मानजनक र व्यवस्थित सेवा प्रदान गर्छौं।</p>
+  <div class="hero-btns">
+    <a href="#contact" class="btn btn-primary">अहिले सम्पर्क गर्नुहोस्</a>
+    <a href="#services" class="btn btn-ghost">सेवाहरू हेर्नुहोस्</a>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="section contact" id="contact">
+  <div>
+    <span class="pill-label">सम्पर्क</span>
+    <h2>सम्पर्क विवरण</h2>
+    <p class="lead">बुकिङ, धार्मिक परामर्श वा यात्रा सम्बन्धी जानकारीका लागि हामीलाई सम्पर्क गर्नुहोस्।</p>
+    <div class="info-row"><span class="label">संस्थाको नाम</span><span class="value">बैदिक दिव्यधाम नेपाल</span></div>
+    <div class="info-row"><span class="label">फोन</span><span class="value">+९७७-९८XXXXXXXX</span></div>
+    <div class="info-row"><span class="label">इमेल</span><span class="value">info@baidikdibyadhamnepal.com</span></div>
+    <div class="info-row"><span class="label">ठेगाना</span><span class="value">काठमाडौं, नेपाल</span></div>
+    <div class="info-row"><span class="label">समय</span><span class="value">आइतबार – शनिबार : बिहान ७:०० देखि बेलुका ७:०० सम्म</span></div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h3>धर्म गर्नुहोस्, श्रद्धा राख्नुहोस्।<br>बाँकी सेवा हामीमाथि छोड्नुहोस्।</h3>
+      </div>
+      <div class="foot-brand">
+        <div class="logo"><span class="om">🕉</span> बैदिक दिव्यधाम नेपाल</div>
+        <p>पुराण वाचन, पूजा-पाठ, हवन, संस्कार, अनुष्ठान तथा नेपाल र भारतका प्रसिद्ध तीर्थस्थलहरूमा व्यवस्थित तीर्थयात्रा।</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© २०२६ बैदिक दिव्यधाम नेपाल। सर्वाधिकार सुरक्षित।</span>
+      <span>धर्म • श्रद्धा • सेवा • यात्रा</span>
+      <div class="socials">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">◎</a>
+        <a href="#" aria-label="YouTube">▶</a>
+        <a href="#" aria-label="Email">@</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burger');
+  const menu = document.getElementById('menu');
+  burger.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    burger.textContent = open ? '✕' : '☰';
+    burger.setAttribute('aria-expanded', open);
+  });
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    burger.textContent = '☰';
+  }));
+</script>
+
+</body>
+</html>

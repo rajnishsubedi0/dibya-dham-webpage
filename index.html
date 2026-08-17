@@ -31,8 +31,10 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",
-      "Kohinoor Devanagari","Noto Sans Devanagari","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    /* ✅ FIX: Proper fallback font stack for Devanagari */
+    font-family: "Kohinoor Devanagari", "Mangal", "Nirmala UI", "Noto Sans Devanagari", 
+                 -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
+                 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background:var(--bg);color:var(--ink);font-size:17px;line-height:1.75;
     overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   }
@@ -540,7 +542,6 @@
       <span>© २०२६ बैदिक दिव्यधाम नेपाल। सर्वाधिकार सुरक्षित।</span>
       <span>धर्म • श्रद्धा • सेवा • यात्रा</span>
       <div class="socials">
-        <!-- Screen-reader friendly social icons -->
         <a href="#" aria-label="Facebook"><span aria-hidden="true">f</span></a>
         <a href="#" aria-label="Instagram"><span aria-hidden="true">◎</span></a>
         <a href="#" aria-label="YouTube"><span aria-hidden="true">▶</span></a>

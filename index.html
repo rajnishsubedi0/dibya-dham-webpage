@@ -31,10 +31,8 @@
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
-    /* ✅ FIX: Proper fallback font stack for Devanagari */
-    font-family: "Kohinoor Devanagari", "Mangal", "Nirmala UI", "Noto Sans Devanagari", 
-                 -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display",
-                 "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display",
+      "Kohinoor Devanagari","Noto Sans Devanagari","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
     background:var(--bg);color:var(--ink);font-size:17px;line-height:1.75;
     overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
   }
@@ -95,10 +93,11 @@
        display:flex;align-items:center;gap:10px}
   .logo .om{width:40px;height:40px;border-radius:50%;background:var(--accent);color:#fff;
        display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
-  .nav-links{display:flex;gap:4px;align-items:center}
-  .nav-links a{font-weight:500;font-size:16.5px;padding:10px 16px;border-radius:999px;color:var(--ink)}
+  .nav-links{display:flex;gap:4px;align-items:center;position:relative}
+  .nav-links a{font-weight:500;font-size:16.5px;padding:10px 16px;border-radius:999px;color:var(--ink);
+       transition:color .25s, background .25s;position:relative;z-index:2}
   .nav-links a:hover{background:var(--accent-soft);color:var(--accent-dk)}
-  .nav-links a.active{background:var(--accent);color:#fff}
+  .nav-links a.active{color:#fff;background:var(--accent)}
   .nav-cta{display:flex;align-items:center;gap:10px}
   .nav-cta .btn{padding:11px 22px;font-size:16px}
   .burger{display:none;width:46px;height:46px;border-radius:12px;border:1px solid var(--line2);
@@ -214,29 +213,102 @@
       color: var(--accent);
   }
 
-  /* ============ Footer ============ */
-  footer{background:#1f1f1f;color:#fff;padding:70px 24px 36px}
-  .foot-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center}
-  .foot-grid h3{font-weight:700;letter-spacing:-.02em;color:#fff;
-       font-size:clamp(24px,2.8vw,32px);line-height:1.45;margin-bottom:26px}
-  .foot-brand{text-align:right}
-  .foot-brand .logo{justify-content:flex-end;color:#fff;font-size:22px;margin-bottom:14px}
-  .foot-brand p{color:rgba(255,255,255,.65);font-size:15.5px}
-  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap;
-       margin-top:54px;padding-top:26px;border-top:1px solid rgba(255,255,255,.18);
-       color:rgba(255,255,255,.6);font-size:14.5px}
-  .socials{display:flex;gap:10px}
-  .socials a{width:38px;height:38px;border:1px solid rgba(255,255,255,.35);border-radius:50%;
-       display:inline-flex;align-items:center;justify-content:center;font-size:14px;color:#fff}
-  .socials a:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+  /* ============ Footer (matching footer.png, keeping theme) ============ */
+  .footer-new {
+    background: #1f1f1f;
+    color: #fff;
+    padding: 70px 24px 36px;
+  }
+  .footer-new .wrap {
+    display: grid;
+    grid-template-columns: 1.2fr 0.9fr 0.9fr 1.2fr;
+    gap: 40px 30px;
+    align-items: start;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding-bottom: 50px;
+    margin-bottom: 30px;
+  }
+  .footer-brand h3 {
+    font-size: clamp(22px, 3vw, 30px);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    margin-bottom: 14px;
+    color: #fff;
+  }
+  .footer-brand .sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 280px;
+  }
+  .footer-social {
+    display: flex;
+    gap: 12px;
+    margin-top: 16px;
+  }
+  .footer-social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.25);
+    color: rgba(255,255,255,0.8);
+    font-size: 16px;
+    transition: .2s;
+  }
+  .footer-social a:hover {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .footer-col h4 {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -.01em;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col ul li { margin-bottom: 10px; }
+  .footer-col ul a {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    transition: .2s;
+  }
+  .footer-col ul a:hover { color: var(--accent); }
+  .footer-col .contact-line {
+    color: rgba(255,255,255,0.7);
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .footer-col .contact-line a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .footer-col .contact-line a:hover { color: var(--accent); }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    color: rgba(255,255,255,0.5);
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
 
   /* ============ Responsive ============ */
   @media (max-width:1020px){
     .service-grid{grid-template-columns:repeat(2,1fr)}
     .dest-grid{grid-template-columns:repeat(2,1fr)}
-    .why-faq,.foot-grid{grid-template-columns:1fr;gap:48px}
-    .foot-brand{text-align:left}
-    .foot-brand .logo{justify-content:flex-start}
+    .why-faq{grid-template-columns:1fr;gap:48px}
+    .footer-new .wrap{grid-template-columns:1fr 1fr;gap:40px 30px}
   }
   @media (max-width:900px){
     .burger{display:inline-flex;align-items:center;justify-content:center}
@@ -255,7 +327,8 @@
     .stats .wrap{gap:26px}
     .nav-cta .btn{padding:10px 16px;font-size:15px}
     .cta{background-attachment:scroll}
-    footer{padding:56px 20px 30px}
+    .footer-new .wrap{grid-template-columns:1fr;gap:32px}
+    .footer-bottom{flex-direction:column;text-align:center}
   }
 </style>
 </head>
@@ -488,6 +561,14 @@
       <summary>समूह बाहेक व्यक्तिगत पूजा वा यात्रा पनि हुन्छ?</summary>
       <p>दुवै हुन्छ। घरायसी पूजा, संस्कारदेखि समूह वा व्यक्तिगत तीर्थयात्रासम्म — प्रत्येकलाई मर्यादित र सुन्दर ढंगले सम्पन्न गरिन्छ।</p>
     </details>
+    <details>
+      <summary>पूजाको सामग्री कसले व्यवस्थापन गर्छ?</summary>
+      <p>हामीले आवश्यक सबै पूजा सामग्री (गायँ, हवन सामग्री, फूल, प्रसाद) को व्यवस्था गर्न सक्छौं, वा तपाईंको इच्छाअनुसार सहयोग गर्छौं।</p>
+    </details>
+    <details>
+      <summary>धार्मिक कार्यक्रमको फोटो/भिडियो खिचाउन मिल्छ?</summary>
+      <p>हामी तपाईंको अनुमतिमा पूजाको स्मरणीय फोटो तथा भिडियो खिच्न र प्रदान गर्न सक्छौं।</p>
+    </details>
   </div>
 </section>
 
@@ -526,43 +607,117 @@
   </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
-<footer>
+<!-- ================= FOOTER (matching footer.png, keeping theme) ================= -->
+<footer class="footer-new">
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <h3>धर्म गर्नुहोस्, श्रद्धा राख्नुहोस्।<br>बाँकी सेवा हामीमाथि छोड्नुहोस्।</h3>
-      </div>
-      <div class="foot-brand">
-        <div class="logo"><span class="om">🕉</span> बैदिक दिव्यधाम नेपाल</div>
-        <p>पुराण वाचन, पूजा-पाठ, हवन, संस्कार, अनुष्ठान तथा नेपाल र भारतका प्रसिद्ध तीर्थस्थलहरूमा व्यवस्थित तीर्थयात्रा।</p>
-      </div>
-    </div>
-    <div class="foot-bottom">
-      <span>© २०२६ बैदिक दिव्यधाम नेपाल। सर्वाधिकार सुरक्षित।</span>
-      <span>धर्म • श्रद्धा • सेवा • यात्रा</span>
-      <div class="socials">
+    <!-- brand -->
+    <div class="footer-brand">
+      <h3>बैदिक दिव्यधाम नेपाल</h3>
+      <div class="sub">पुराण वाचन, पूजा-पाठ, हवन, संस्कार, अनुष्ठान तथा नेपाल र भारतका प्रसिद्ध तीर्थस्थलहरूमा व्यवस्थित तीर्थयात्रा।</div>
+      <div class="footer-social">
         <a href="#" aria-label="Facebook"><span aria-hidden="true">f</span></a>
         <a href="#" aria-label="Instagram"><span aria-hidden="true">◎</span></a>
         <a href="#" aria-label="YouTube"><span aria-hidden="true">▶</span></a>
         <a href="#" aria-label="Email"><span aria-hidden="true">@</span></a>
       </div>
     </div>
+    <!-- quick links -->
+    <div class="footer-col">
+      <h4>शिटो लिंकहरू</h4>
+      <ul>
+        <li><a href="#home">गृहपृष्ठ</a></li>
+        <li><a href="#services">सेवाहरू</a></li>
+        <li><a href="#about">हाम्रो बारेमा</a></li>
+        <li><a href="#destinations">गन्तव्य</a></li>
+        <li><a href="#contact">सम्पर्क</a></li>
+      </ul>
+    </div>
+    <!-- services -->
+    <div class="footer-col">
+      <h4>सेवाहरू</h4>
+      <ul>
+        <li><a href="#services">पुराण वाचन</a></li>
+        <li><a href="#services">पूजा तथा हवन</a></li>
+        <li><a href="#services">संस्कार तथा शुभकार्य</a></li>
+        <li><a href="#services">तीर्थयात्रा व्यवस्थापन</a></li>
+        <li><a href="#contact">धार्मिक परामर्श</a></li>
+      </ul>
+    </div>
+    <!-- contact -->
+    <div class="footer-col">
+      <h4>सम्पर्क</h4>
+      <div class="contact-line">
+        <div>काठमाडौं, नेपाल</div>
+        <div><a href="tel:+97798XXXXXXXX">+९७७-९८XXXXXXXX</a></div>
+        <div><a href="mailto:info@baidikdibyadhamnepal.com">info@baidikdibyadhamnepal.com</a></div>
+        <div>आइतबार – शनिवार : विहान ७:०० – बेलुका ७:००</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© २०२६ बैदिक दिव्यधाम नेपाल। सर्वाधिकार सुरक्षित।</span>
+    <span>धर्म • श्रद्धा • सेवा • यात्रा</span>
   </div>
 </footer>
 
 <script>
-  const burger = document.getElementById('burger');
-  const menu = document.getElementById('menu');
-  burger.addEventListener('click', () => {
-    const open = menu.classList.toggle('open');
-    burger.textContent = open ? '✕' : '☰';
-    burger.setAttribute('aria-expanded', open);
-  });
-  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    menu.classList.remove('open');
-    burger.textContent = '☰';
-  }));
+  (function() {
+    // --- burger ---
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+    burger.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      burger.textContent = open ? '✕' : '☰';
+      burger.setAttribute('aria-expanded', open);
+    });
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      menu.classList.remove('open');
+      burger.textContent = '☰';
+      burger.setAttribute('aria-expanded', 'false');
+    }));
+
+    // --- smooth scrollspy (no underline) ---
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const sections = document.querySelectorAll('section[id]');
+
+    function setActive(id) {
+      navLinks.forEach(link => {
+        const href = link.getAttribute('href').slice(1);
+        if (href === id) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }
+
+    function onScroll() {
+      let scrollY = window.scrollY || window.pageYOffset;
+      let currentId = 'home';
+      sections.forEach(sec => {
+        const top = sec.offsetTop - 110;
+        if (scrollY >= top) currentId = sec.id;
+      });
+      // near bottom → contact
+      if (window.innerHeight + scrollY >= document.documentElement.scrollHeight - 60) {
+        currentId = 'contact';
+      }
+      setActive(currentId);
+    }
+
+    // initial set
+    setTimeout(onScroll, 50);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+
+    // also on nav click set active instantly
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        const id = this.getAttribute('href').slice(1);
+        setActive(id);
+      });
+    });
+  })();
 </script>
 
 </body>
